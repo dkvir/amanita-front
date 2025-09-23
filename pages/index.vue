@@ -23,7 +23,7 @@
           },
         ]"
       >
-        <home-content :item="couple" :index="index + 1" />
+        <!-- <home-content :item="couple" :index="index + 1" /> -->
       </li>
     </ul>
     <div class="separator"></div>
@@ -40,128 +40,128 @@ const stops = ref(null);
 
 onMounted(() => {
   setTimeout(() => {
-    stops.value = document.querySelectorAll(".home-page .stop");
+    // stops.value = document.querySelectorAll(".home-page .stop");
     setupSequentialLoading();
-    gsap.registerPlugin(SplitText);
-    const timelines = [];
+    // gsap.registerPlugin(SplitText);
+    // const timelines = [];
 
-    content.value.forEach((element, index) => {
-      const title = element.querySelectorAll(".title");
-      const subtitle = element.querySelector(".subtitle");
-      const joinButton = element.querySelector(".join");
-      const arrow = element.querySelector(".arrow");
+    // content.value.forEach((element, index) => {
+    //   const title = element.querySelectorAll(".title");
+    //   const subtitle = element.querySelector(".subtitle");
+    //   const joinButton = element.querySelector(".join");
+    //   const arrow = element.querySelector(".arrow");
 
-      let splitTitles = SplitText.create(title, {
-        type: "lines, chars",
-        linesClass: "line",
-      });
+    //   let splitTitles = SplitText.create(title, {
+    //     type: "lines, chars",
+    //     linesClass: "line",
+    //   });
 
-      const tl = gsap.timeline();
+    //   const tl = gsap.timeline();
 
-      if (index == 0) {
-        tl.to(
-          arrow,
-          {
-            opacity: 0,
-            duration: 0.2,
-            ease: "power1.inOut",
-          },
-          "<"
-        )
-          .addLabel("enter")
-          .to(
-            splitTitles.chars,
-            {
-              yPercent: 100,
-              opacity: 0,
-              duration: 0.13,
-              ease: "power1.inOut",
-              stagger: {
-                from: "start",
-                ease: "power1.inOut",
-                each: 0.003,
-              },
-            },
-            "<"
-          );
-      } else {
-        gsap.set(splitTitles.chars, {
-          yPercent: 100,
-          opacity: 0,
-        });
+    //   if (index == 0) {
+    //     tl.to(
+    //       arrow,
+    //       {
+    //         opacity: 0,
+    //         duration: 0.2,
+    //         ease: "power1.inOut",
+    //       },
+    //       "<"
+    //     )
+    //       .addLabel("enter")
+    //       .to(
+    //         splitTitles.chars,
+    //         {
+    //           yPercent: 100,
+    //           opacity: 0,
+    //           duration: 0.13,
+    //           ease: "power1.inOut",
+    //           stagger: {
+    //             from: "start",
+    //             ease: "power1.inOut",
+    //             each: 0.003,
+    //           },
+    //         },
+    //         "<"
+    //       );
+    //   } else {
+    //     gsap.set(splitTitles.chars, {
+    //       yPercent: 100,
+    //       opacity: 0,
+    //     });
 
-        if (arrow) {
-          gsap.set(arrow, {
-            opacity: 0,
-          });
-        }
-        if (subtitle) {
-          gsap.set(subtitle, {
-            opacity: 0,
-          });
-        }
+    //     if (arrow) {
+    //       gsap.set(arrow, {
+    //         opacity: 0,
+    //       });
+    //     }
+    //     if (subtitle) {
+    //       gsap.set(subtitle, {
+    //         opacity: 0,
+    //       });
+    //     }
 
-        if (subtitle) {
-          tl.addLabel("subtitle").from(subtitle, {
-            opacity: 0,
-            ease: "power4.inOut",
-            duration: 0.1,
-          });
-        }
+    //     if (subtitle) {
+    //       tl.addLabel("subtitle").from(subtitle, {
+    //         opacity: 0,
+    //         ease: "power4.inOut",
+    //         duration: 0.1,
+    //       });
+    //     }
 
-        tl.addLabel("enter").to(
-          splitTitles.chars,
-          {
-            yPercent: 0,
-            opacity: 1,
-            duration: 0.3,
-            ease: "power1.inOut",
-            stagger: {
-              from: "start",
-              ease: "power1.inOut",
-              each: 0.006,
-            },
-          },
-          "<"
-        );
+    //     tl.addLabel("enter").to(
+    //       splitTitles.chars,
+    //       {
+    //         yPercent: 0,
+    //         opacity: 1,
+    //         duration: 0.3,
+    //         ease: "power1.inOut",
+    //         stagger: {
+    //           from: "start",
+    //           ease: "power1.inOut",
+    //           each: 0.006,
+    //         },
+    //       },
+    //       "<"
+    //     );
 
-        tl.addLabel("hold").to(splitTitles.chars, {
-          duration: 0.1,
-          ease: "none",
-        });
+    //     tl.addLabel("hold").to(splitTitles.chars, {
+    //       duration: 0.1,
+    //       ease: "none",
+    //     });
 
-        if (subtitle) {
-          tl.addLabel("subtitleExit").to(subtitle, {
-            opacity: 0,
-            ease: "power1.inOut",
-            duration: 0.1,
-          });
-        }
-        tl.addLabel("exitLanes").to(splitTitles.chars, {
-          yPercent: 100,
-          opacity: 0,
-          duration: 0.3,
-          ease: "power1.inOut",
-          stagger: {
-            from: "start",
-            ease: "power1.inOut",
-            each: 0.003,
-          },
-        });
-      }
+    //     if (subtitle) {
+    //       tl.addLabel("subtitleExit").to(subtitle, {
+    //         opacity: 0,
+    //         ease: "power1.inOut",
+    //         duration: 0.1,
+    //       });
+    //     }
+    //     tl.addLabel("exitLanes").to(splitTitles.chars, {
+    //       yPercent: 100,
+    //       opacity: 0,
+    //       duration: 0.3,
+    //       ease: "power1.inOut",
+    //       stagger: {
+    //         from: "start",
+    //         ease: "power1.inOut",
+    //         each: 0.003,
+    //       },
+    //     });
+    //   }
 
-      timelines.push(tl);
-    });
+    //   timelines.push(tl);
+    // });
 
-    stops.value.forEach((element, index) => {
-      ScrollTrigger.create({
-        trigger: element,
-        start: index == 0 ? `top top` : `top-=50% top`,
-        end: `bottom-=50% top`,
-        scrub: true,
-        animation: timelines[index],
-      });
-    });
+    // stops.value.forEach((element, index) => {
+    //   ScrollTrigger.create({
+    //     trigger: element,
+    //     start: index == 0 ? `top top` : `top-=50% top`,
+    //     end: `bottom-=50% top`,
+    //     scrub: true,
+    //     animation: timelines[index],
+    //   });
+    // });
   }, 500);
 });
 

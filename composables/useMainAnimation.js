@@ -435,7 +435,7 @@ export function useThreeScene(canvasId) {
     proxy.time = 0;
 
     if (index == 0) {
-      const split = new SplitText(".window .scroll-down", { type: "chars" });
+      // const split = new SplitText(".window .scroll-down", { type: "chars" });
 
       const tl = gsap.timeline({
         paused: true,
@@ -499,25 +499,25 @@ export function useThreeScene(canvasId) {
         },
       });
 
-      split.chars.forEach((char, index) => {
-        const yOffset =
-          index % 2 === 0 ? -50 * Math.random() : 50 * Math.random();
+      // split.chars.forEach((char, index) => {
+      //   const yOffset =
+      //     index % 2 === 0 ? -50 * Math.random() : 50 * Math.random();
 
-        const xOffset = (Math.random() * 2 - 1) * 30;
-        const rotateOffset = (Math.random() * 2 - 1) * 30;
-        tl.to(
-          char,
-          {
-            y: yOffset,
-            x: xOffset,
-            rotate: rotateOffset,
-            ease: "power2.inOut",
-            opacity: 0,
-            duration: 0.9,
-          },
-          0
-        );
-      });
+      //   const xOffset = (Math.random() * 2 - 1) * 30;
+      //   const rotateOffset = (Math.random() * 2 - 1) * 30;
+      //   tl.to(
+      //     char,
+      //     {
+      //       y: yOffset,
+      //       x: xOffset,
+      //       rotate: rotateOffset,
+      //       ease: "power2.inOut",
+      //       opacity: 0,
+      //       duration: 0.9,
+      //     },
+      //     0
+      //   );
+      // });
     } else {
       const scrollTimeline = gsap.timeline({
         scrollTrigger: {

@@ -11,9 +11,9 @@
         <span class="span">{{ $t("global.footer.copyright") }}</span>
         <span class="amanita" v-html="$t('global.footer.amanita')"></span>
       </div> -->
-      <div class="scroll-down uppercase">
+      <!-- <div class="scroll-down uppercase">
         {{ $t("global.footer.discover") }}
-      </div>
+      </div> -->
       <!-- <common-tiny-socials /> -->
     </div>
   </div>
